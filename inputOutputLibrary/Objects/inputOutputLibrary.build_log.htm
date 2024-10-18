@@ -1,0 +1,99 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.40.0.0
+Copyright (C) 2024 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: MD. AL-AMIN KABIR, gizantech, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.40.0.3
+Toolchain Path:  C:\Users\ASUS\AppData\Local\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.22
+Assembler:       Armasm.exe V6.22
+Linker/Locator:  ArmLink.exe V6.22
+Library Manager: ArmAr.exe V6.22
+Hex Converter:   FromElf.exe V6.22
+CPU DLL:         SARMCM3.DLL V5.40.0.3
+Dialog DLL:       DARMSTM.DLL
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.3.0.0
+Dialog DLL:      TCM.DLL V1.56.4.0
+ 
+<h2>Project:</h2>
+F:\stm32onKiel\inputOutputLibrary\inputOutputLibrary.uvprojx
+Project File Date:  10/18/2024
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.22', folder: 'C:\Users\ASUS\AppData\Local\Keil_v5\ARM\ARMCLANG\Bin'
+Rebuild target 'Target 1'
+compiling main.c...
+assembling startup_stm32f10x_ld.s...
+gpio_drive.c(32): warning: variable 'CR' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+   32 |     else if (port == PORTC) // Port C
+      |              ^~~~~~~~~~~~~
+gpio_drive.c(38): note: uninitialized use occurs here
+   38 |     *CR &= ~(0xf << (tPIN * 4)); // Reset the target pin
+      |      ^~
+gpio_drive.c(32): note: remove the 'if' if its condition is always true
+   32 |     else if (port == PORTC) // Port C
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   33 |     {
+gpio_drive.c(12): note: initialize the variable 'CR' to silence this warning
+   12 |     volatile unsigned long *CR;
+      |                               ^
+      |                                = 0
+gpio_drive.c(57): warning: variable 'IDR' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+   57 |     else if (port == PORTC)
+      |              ^~~~~~~~~~~~~
+gpio_drive.c(62): note: uninitialized use occurs here
+   62 |     state = ((*IDR & (1 << pin)) >> pin); // Read pin state
+      |                ^~~
+gpio_drive.c(57): note: remove the 'if' if its condition is always true
+   57 |     else if (port == PORTC)
+      |          ^~~~~~~~~~~~~~~~~~
+   58 |     {
+gpio_drive.c(45): note: initialize the variable 'IDR' to silence this warning
+   45 |     volatile unsigned long *IDR;
+      |                                ^
+      |                                 = 0
+2 warnings generated.
+compiling gpio_drive.c...
+compiling system_stm32f10x.c...
+linking...
+Program Size: Code=1404 RO-data=252 RW-data=0 ZI-data=1632  
+".\Objects\inputOutputLibrary.axf" - 0 Error(s), 2 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                https://www.keil.com/pack/ARM.CMSIS.6.1.0.pack
+                ARM::CMSIS@6.1.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 6.1.0
+
+Package Vendor: Keil
+                https://www.keil.com/pack/Keil.STM32F1xx_DFP.2.4.1.pack
+                Keil::STM32F1xx_DFP@2.4.1
+                STMicroelectronics STM32F1 Series Device Support, Drivers and Examples
+   * Component: Startup Version: 1.0.0
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/Device/STM32F103C6
+  ./RTE/_Target_1
+  C:/Users/ASUS/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include
+  C:/Users/ASUS/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE@6.1.0
+
+   * Component: Keil::Device:Startup@1.0.0
+      Source file:   Device/Source/ARM/startup_stm32f10x_ld.s
+      Include file:  RTE_Driver/Config/RTE_Device.h
+      Source file:   Device/Source/system_stm32f10x.c
+      Source file:   Device/Source/ARM/STM32F1xx_OPT.s
+Build Time Elapsed:  00:00:02
+</pre>
+</body>
+</html>

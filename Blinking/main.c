@@ -11,9 +11,9 @@ int main(void)
 	
 	while(1)
 	{
-		GPIOC->ODR |= 0x2000;
+		GPIOC->ODR |= 0x2000;		//turn on led
 		delay(10);
-		GPIOC->ODR &= ~0x2000;
+		GPIOC->ODR &= ~0x2000;		//turn off led
 		delay(10);
 	}
 	

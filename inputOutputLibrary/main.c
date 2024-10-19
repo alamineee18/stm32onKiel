@@ -1,3 +1,4 @@
+#include "stm32f10x.h"                  // Device header
 #include "gpio_drive.h"
 
 int main(void)

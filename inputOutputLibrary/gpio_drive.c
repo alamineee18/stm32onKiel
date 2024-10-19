@@ -34,6 +34,11 @@ void init_GP(unsigned short port, unsigned short pin, unsigned short dir, unsign
         RCC_APB2ENR |= 0x10; // Enable PORT C clock
         CR = (volatile unsigned long *)(GPIO_C + (offset ? 0x04 : 0x00)); // CRH or CRL
     }
+		else
+    {
+        // Add a default case to handle invalid ports if necessary
+        return;  // Optionally return here to avoid further execution in case of invalid port
+    }
 
     *CR &= ~(0xf << (tPIN * 4)); // Reset the target pin
     *CR |= ((dir << (tPIN * 4)) | (opt << (tPIN * 4 + 2))); // Set direction and option
@@ -58,6 +63,10 @@ int R_GP(unsigned short port, unsigned short pin)
     {
         IDR = (volatile unsigned long *)(GPIO_C + offset);
     }
+		else{
+        return -1;
+    }
+		
 
     state = ((*IDR & (1 << pin)) >> pin); // Read pin state
     return state;
